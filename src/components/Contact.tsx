@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {
     GithubIcon,
     LinkedinIcon,
-    TwitterIcon,
     InstagramIcon,
     SendIcon,
     Loader2Icon

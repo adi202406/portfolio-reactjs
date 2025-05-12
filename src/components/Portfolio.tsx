@@ -23,7 +23,7 @@ export const Portfolio = () => {
             category: 'Web Development',
             image: 'schoolone.webp',
             link: 'https://adiy.my.id',
-            techStack: ['Laravel 11', 'Livewire', 'Filament', 'Cloudinary', 'Tailwind CSS', 'MySQL', 'Spatie Roles & Permissions'], 
+            techStack: ['Laravel 11', 'Livewire', 'Filament', 'Cloudinary', 'Tailwind CSS', 'MySQL', 'Spatie Roles & Permissions'],
             tags: ['All', 'Web']
         },
         {
@@ -43,14 +43,14 @@ export const Portfolio = () => {
             tags: ['All', 'Web']
         },
         {
-            title: 'Rest API Task Management System (In Progress)', 
+            title: 'Rest API Task Management System (In Progress)',
             category: 'API Development',
             image: 'rest-api-todo-list.png',
             techStack: ['Laravel', 'Sanctum', 'Oauth', 'Cloudinary', 'MySQL'],
             tags: ['All', 'API']
         },
         {
-            title: 'E-Sign Internship Project – Dako Brand & Communication', 
+            title: 'E-Sign Internship Project – Dako Brand & Communication',
             category: 'Web Development',
             image: 'e-sign.jpeg',
             techStack: ['Laravel', 'MySql', 'Backend'],
@@ -123,24 +123,22 @@ export const Portfolio = () => {
                     <div className="order-1 lg:order-2 flex flex-col justify-center">
                         <h3 className="text-3xl font-bold mb-8">Featured Projects</h3>
                         <div className="space-y-4">
-                            {projects.slice(0,4).map((project, index) => (
+                            {projects.slice(0, 4).map((project, index) => (
                                 <button
                                     key={index}
-                                    className={`w-full cursor-pointer p-4 sm:p-6 rounded-xl transition-all duration-300 ${
-                                        activeProject === index
+                                    className={`w-full cursor-pointer p-4 sm:p-6 rounded-xl transition-all duration-300 ${activeProject === index
                                             ? 'bg-white/10 backdrop-blur-md border border-white/10 transform scale-[1.02]'
                                             : 'hover:bg-white/5'
-                                    }`}
+                                        }`}
                                     onClick={() => setActiveProject(index)}
                                 >
                                     <div className="flex items-center">
                                         <div className="mr-4">
                                             <div
-                                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                                                    activeProject === index
+                                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${activeProject === index
                                                         ? 'bg-gradient-to-r from-purple-500 to-cyan-400'
                                                         : 'bg-white/10'
-                                                }`}
+                                                    }`}
                                             >
                                                 {index + 1}
                                             </div>
@@ -162,72 +160,74 @@ export const Portfolio = () => {
                                 <button
                                     key={filter}
                                     onClick={() => setActiveFilter(filter)}
-                                    className={`px-4 sm:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
-                                        activeFilter === filter
+                                    className={`px-4 sm:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${activeFilter === filter
                                             ? 'bg-gradient-to-r from-purple-500 to-cyan-400 text-white'
                                             : 'bg-white/5 hover:bg-white/10'
-                                    }`}
+                                        }`}
                                 >
                                     {filter}
                                 </button>
                             ),
                         )}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 ">
                         {filteredProjects.map((project, index) => (
                             <div
                                 key={index}
-                                className="group relative overflow-hidden rounded-xl aspect-[4/3] transform transition-all duration-300 hover:scale-[1.02]"
+                                className="group flex flex-col rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl backdrop-blur-lg bg-white/5 border border-white/10"
                             >
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    loading="lazy"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <div className="absolute bottom-0 left-0 p-6 w-full">
-                                        <h4 className="text-xl font-bold">{project.title}</h4>
-                                        <p className="text-gray-300 mb-3">{project.category}</p>
-                                        
-                                        {/* Tech Stack Tags */}
-                                        <div className="flex flex-wrap gap-2 mb-4">
-                                            {project.techStack.map((tech, techIndex) => (
-                                                <span 
-                                                    key={techIndex}
-                                                    className="text-xs px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center"
-                                                >
-                                                    <Code2 size={12} className="mr-1" />
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
-                                        
-                                        {/* Project Links */}
-                                        <div className="flex items-center gap-3">
-                                            {project.link && (
-                                                <a
-                                                    href={project.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center hover:bg-white/20 transition-all duration-300"
-                                                >
-                                                    <ExternalLink size={14} className="mr-1" />
-                                                    <span className="text-xs">Live Demo</span>
-                                                </a>
-                                            )}
-                                            {project.github && (
-                                                <a
-                                                    href={project.github}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center hover:bg-white/20 transition-all duration-300"
-                                                >
-                                                    <Github size={14} className="mr-1" />
-                                                    <span className="text-xs">Source Code</span>
-                                                </a>
-                                            )}
-                                        </div>
+                                {/* Image Container with Hover Effect */}
+                                <div className="relative overflow-hidden aspect-[4/3]">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        loading="lazy"
+                                    />
+                                </div>
+
+                                {/* Always Visible Content */}
+                                <div className="p-5 flex-grow">
+                                    <h4 className="text-xl font-bold mb-2">{project.title}</h4>
+                                    <p className="text-gray-300 mb-3">{project.category}</p>
+
+                                    {/* Tech Stack Tags */}
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {project.techStack.map((tech, techIndex) => (
+                                            <span
+                                                key={techIndex}
+                                                className="text-xs px-2 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center"
+                                            >
+                                                <Code2 size={12} className="mr-1" />
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Project Links */}
+                                    <div className="flex items-center gap-3 mt-auto">
+                                        {project.link && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center hover:bg-white/20 transition-all duration-300"
+                                            >
+                                                <ExternalLink size={14} className="mr-1" />
+                                                <span className="text-xs">Live Demo</span>
+                                            </a>
+                                        )}
+                                        {project.github && (
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm flex items-center hover:bg-white/20 transition-all duration-300"
+                                            >
+                                                <Github size={14} className="mr-1" />
+                                                <span className="text-xs">Source Code</span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
